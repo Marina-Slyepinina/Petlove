@@ -1,15 +1,17 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
+import { lazy } from 'react';
 import { Layout } from '../components/Layout/Layout';
 import { ErrorPage } from '../pages/ErrorPage/ErrorPage';
-import { HomePage } from '../pages/HomePage/HomePage';
-import { NewsPage } from '../pages/NewsPage/NewsPage';
-import { NoticesPage } from '../pages/NoticesPage/NoticesPage';
-import { OurFriendsPage } from '../pages/OurFriendsPage/OurFriendsPage';
-import { RegisterPage } from '../pages/RegisterPage/RegisterPage';
 import { RestrictedRoute } from './RestrictedRoute';
-import { LoginPage } from '../pages/LoginPage/LoginPage';
 import { PrivateRoute } from './PrivateRoute';
-import { ProfilePage } from '../pages/ProfilePage/ProfilePage';
+
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
+const NewsPage = lazy(() => import('../pages/NewsPage/NewsPage'));
+const NoticesPage = lazy(() => import('../pages/NoticesPage/NoticesPage'));
+const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage/OurFriendsPage'));
+const ProfilePage = lazy(() => import('../pages/ProfilePage/ProfilePage'));
 
 const router = createBrowserRouter([
   {
