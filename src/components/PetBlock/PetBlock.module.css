@@ -1,0 +1,71 @@
+@media screen and (max-width: 767.9px){
+    .infoCard {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .container {
+        position: relative;
+    }
+
+    .infoCard {
+        position: absolute;
+        left: 32px;
+        bottom: 32px;
+        width: 294px;
+        padding: 16px;
+        background-color: var(--white);
+        border-radius: 20px;
+
+        display: flex;
+        gap: 8px;
+    }
+
+    .petIcon {
+        width: 60px;
+        height: 60px;
+        background-color: var(--accent-lighter);
+        border-radius: 50%;
+        display: flex;
+        flex-shrink: 0;
+        padding: 14px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .textBlock {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1.16667;
+        letter-spacing: -0.02em;
+        color: var(--text-muted);
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+
+    .name {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+        color: var(--accent);
+    }
+
+    .birthday span {
+        color: var(--text-main);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+
+    .infoCard {
+        left: 60px;
+        bottom:96px;
+    }
+}
