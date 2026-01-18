@@ -1,0 +1,91 @@
+.formWrapper {
+    background-color: var(--white);
+    padding: 27px 20px;
+    border-radius: 30px;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.text {
+    letter-spacing: -0.02em;
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.button {
+    border-radius: 30px;
+    padding: 12px 99px;
+    background-color: var(--accent);
+    margin-top: 24px;
+
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.authSwitcher {
+    margin-top: 12px;
+    text-align: center;
+}
+
+.switcherText {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.03em;
+    color: rgba(38, 38, 38, 0.5);
+}
+
+.switcherLink {
+    font-weight: 700;
+    text-decoration: underline;
+    color: var(--accent);
+}
+
+@media screen and (min-width: 768px) {
+
+    .formWrapper {
+        border-radius: 60px;
+        padding: 30px;
+        justify-content: center;
+    }
+
+    .formContainer {
+        width: 100%;
+        max-width: 424px;
+    }
+
+    .text {
+        font-size: 18px;
+        line-height: 1.22;
+        margin-top: 16px;
+        margin-bottom: 32px;
+    }
+
+    .form {
+        gap: 16px;
+    }
+    
+    .button {
+        font-size: 16px;
+        line-height: 1.25;
+        margin-top: 32px;
+    }
+
+    .authSwitcher {
+        margin-top: 16px;
+    }
+}
