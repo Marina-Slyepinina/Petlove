@@ -21,8 +21,8 @@ export interface AuthState {
   isLoggedIn: boolean;
   isRefreshing: boolean;
 
-  register: (credentials: RegisterPayload) => void;
-  login: (credentials: LoginPayload) => void;
+  register: (credentials: RegisterPayload) => Promise<void>;
+  login: (credentials: LoginPayload) => Promise<void>;
   logout: () => void;
-  refreshUser: () => void;
+  refreshUser: () => Promise<void>;
 }
