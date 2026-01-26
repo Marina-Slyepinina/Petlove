@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { api, setAuthHeader } from "../lib/api";
+import { api, clearAuthHeader, setAuthHeader } from '../lib/api';
 import type { AuthResponse, AuthState } from "../types/auth";
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -22,7 +22,56 @@ export const useAuthStore = create<AuthState>((set) => ({
     });
   },
 
-  login: async () => {},
-  logout: () => {},
-  refreshUser: async () => {},
+  login: async (credentials) => {
+    const { data } = await api.post<AuthResponse>('/users/signin', credentials);
+
+    setAuthHeader(data.token);
+
+    localStorage.setItem('token', data.token);
+
+    set({
+      user: { name: data.name, email: data.email },
+      token: data.token,
+      isLoggedIn: true,
+    });
+  },
+
+  logout: async () => {
+    await api.post('users/signout');
+    clearAuthHeader();
+    localStorage.removeItem('token');
+    set({
+      user: null,
+      token: null,
+      isLoggedIn: false,
+    });
+  },
+
+  refreshUser: async () => {
+    const persistedToken = localStorage.getItem('token');
+    if (!persistedToken) return;
+
+    try {
+      set({ isRefreshing: true });
+      setAuthHeader(persistedToken);
+
+      const { data } = await api.get('users/current');
+
+      set({
+        user: data,
+        token: persistedToken,
+        isLoggedIn: true,
+      });
+    } catch {
+      clearAuthHeader();
+      localStorage.removeItem('token');
+      set({
+        user: null,
+        token: null,
+        isLoggedIn: false,
+      });
+    } finally {
+      set({ isRefreshing: false });
+    }
+  },
 }));
