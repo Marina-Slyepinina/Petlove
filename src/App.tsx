@@ -1,18 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AppLoader } from "./components/AppLoader/AppLoader"
 import { AppRouter } from "./routes/AppRouter"
+import { useAuthStore } from "./store/authStore";
 
 function App() {
 
-  const [isRefreshing, setIsRefreshing] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
 
-  const handleLoadingComplete = () => {
-    setIsRefreshing(false);
-  };
+  const refreshUser = useAuthStore(state => state.refreshUser);
+
+  useEffect(() => {
+    const initApp = async () => {
+      try {
+        await refreshUser();
+      } catch {
+        console.log('User not authorized or token expired');
+      } finally {
+        setIsAuthChecked(true);
+      }
+    }
+
+    initApp();
+  }, [refreshUser]);
 
   return (
     <>
-      {isRefreshing ? <AppLoader onFinish={handleLoadingComplete} isDataLoaded={true} /> : <AppRouter />}
+      {showLoader ? <AppLoader onFinish={() => setShowLoader(false)} isDataLoaded={isAuthChecked} /> : <AppRouter />}
     </>
   )
 }

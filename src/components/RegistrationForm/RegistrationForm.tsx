@@ -32,7 +32,7 @@ export const RegistrationForm = () => {
         try {
             await registerUser(userData);
             reset();
-            navigate('/', { replace: true });
+            navigate('/profile', { replace: true });
 
         } catch (error) {
 

@@ -1,12 +1,13 @@
 import { NavLink } from "react-router";
 import { Nav } from "../Nav/Nav";
-import css from "./Header.module.css";
 import { UserNav } from "../UserNav/UserNav";
 import { AuthNav } from "../AuthNav/AuthNav";
+import { useAuthStore } from "../../store/authStore";
+import css from "./Header.module.css";
 
 export const Header = () => {
 
-  const isAutehenticated = false;
+  const isLoggedIn = useAuthStore(state => state.isLoggedIn);
 
   return (
     <div className={css.headerContainer}>
@@ -22,7 +23,7 @@ export const Header = () => {
       </div>
 
       <div className={css.rightSection}>
-        {!isAutehenticated ?
+        {!isLoggedIn ?
           <div className={css.authNavWrapper}>
             <AuthNav />
           </div>
