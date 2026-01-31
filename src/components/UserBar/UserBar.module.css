@@ -24,6 +24,13 @@
     height: 20px;
 }
 
+.userIconWhite {
+    background-color: var(--accent-lightest);
+}
+
+.userIconWhite svg {
+    fill: var(--accent);
+}
 
 @media screen and (min-width: 768px) {
     
@@ -34,6 +41,10 @@
         line-height: 1;
         letter-spacing: -0.03em;
         color: var(--text-main);
+    }
+
+    .userNameWhite {
+        color: var(--white);
     }
 
     .userIcon {
