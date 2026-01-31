@@ -3,3 +3,10 @@
     align-items: center;
     gap: 10px;
 }
+
+.burger {
+    flex-direction: column;
+    width: 150px;
+    align-items: stretch;
+    margin: 0 auto;
+}

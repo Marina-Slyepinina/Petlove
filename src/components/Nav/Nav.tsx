@@ -1,12 +1,18 @@
+import clsx from "clsx";
 import { NavButton } from "../NavButton/NavButton";
 import css from "./Nav.module.css";
 
-export const Nav = () => {
+interface NavProps {
+  isHome?: boolean;
+  isBurger?: boolean;
+}
+
+export const Nav = ({ isHome, isBurger }: NavProps) => {
   return (
-    <ul className={css.navContainer}>
-      <NavButton to="news" variant="white">News</NavButton>
-      <NavButton to="notices" variant="white">Find pet</NavButton>
-      <NavButton to="friends" variant="white">Our friends</NavButton>
+    <ul className={clsx(css.navContainer, isBurger && css.burger)}>
+      <NavButton to="news" variant={isHome ? "outline" : "transparent"}>News</NavButton>
+      <NavButton to="notices" variant={isHome ? "outline" : "transparent"}>Find pet</NavButton>
+      <NavButton to="friends" variant={isHome ? "outline" : "transparent"}>Our friends</NavButton>
     </ul>
   )
 }
