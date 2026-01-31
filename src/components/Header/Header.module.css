@@ -20,6 +20,10 @@
     stroke: var(--text-main);
 }
 
+.homeSvg {
+    stroke: var(--white);
+}
+
 .burgerMenu svg {
     width: 32px;
     height: 32px;
@@ -37,6 +41,13 @@
     display: flex;
     justify-self: end;
     gap: 16px;
+}
+
+.home {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 28px 40px 0 40px;
 }
 
 @media screen and (min-width: 768px) {
@@ -58,6 +69,10 @@
         width: 36px;
         height: 36px;
     }
+
+    .home {
+        padding: 34px 64px 0 64px;
+    }
 }
 
 @media screen and (min-width: 1280px) {
@@ -74,5 +89,9 @@
         padding-right: 32px;
         display: grid;
         grid-template-columns: 1fr max-content 1fr;
+    }
+
+    .home {
+        padding: 44px 96px 0 96px;
     }
 }
