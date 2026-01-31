@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { UserBar } from '../UserBar/UserBar'
 import { ModalApproveAction } from '../ModalApproveAction/ModalApproveAction';
-import clsx from 'clsx';
 import css from './UserNav.module.css'
 
 interface UserNavProps {
@@ -15,7 +14,7 @@ export const UserNav = ({ isHome }: UserNavProps) => {
     return (
         <div className={css.userNavContainer}>
 
-            <button type="button" onClick={() => setIsModalOpen(true)} className={clsx(css.btn, isHome && css.outline)}>Log out</button>
+            {!isHome && <button type="button" onClick={() => setIsModalOpen(true)} className={css.btn}>Log out</button>}
             {isModalOpen && <ModalApproveAction onClose={() => setIsModalOpen(false)} />}
 
             <UserBar />
