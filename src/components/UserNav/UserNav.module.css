@@ -21,3 +21,16 @@
     background-color: var(--accent);
     color: var(--white);
 }
+
+.outline {
+  padding: 15px 35px;
+  border: 1px solid var(--border-light);
+  color: var(--white);
+  background-color: transparent;
+}
+
+.outline:hover,
+.outline:focus {
+  background-color: var(--accent-lightest);
+  color: var(--accent);
+}
