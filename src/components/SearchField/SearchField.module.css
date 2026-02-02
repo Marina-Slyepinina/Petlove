@@ -1,0 +1,52 @@
+.form {
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    border-radius: 30px;
+    padding: 12px;
+    padding-right: 66px;
+    background-color: var(--white);
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.03em;
+    color: var(--text-main);
+}
+
+.input::placeholder {
+    color: var(--text-main);
+}
+
+.actionsBlock {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+
+    display: flex;
+    gap: 8px;
+}
+
+.searchSvg {
+    fill: transparent;
+}
+
+.searchSvg, .clearSvg {
+    stroke: var(--text-main);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+    .input {
+        padding: 14px;
+    }
+
+    .actionsBlock {
+        right: 14px;
+    }
+}
