@@ -18,13 +18,11 @@ export const SearchField = ({ onSearch, placeholder, className }: SearchFieldPro
 
   const handleClear = () => {
     setQuery('');
-    onSearch('');
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSearch(query);
-    setQuery('');
   }
 
   return (
