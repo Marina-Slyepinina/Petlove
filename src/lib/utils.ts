@@ -1,4 +1,31 @@
+import type { WorkDay } from '../types/friends';
+
 export const formatDate = (date: string) => {
   const newDate = new Date(date);
   return newDate.toLocaleDateString('en-GB');
+};
+
+const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+export const formatWorkTime = (workDays: WorkDay[]) => {
+  if (!workDays || workDays.length === 0) {
+    return {
+      currentWorkTime: 'Day and night',
+      details: [],
+    };
+  }
+
+  const todayIndex = new Date().getDay() - 1;
+  const currentDay = workDays[todayIndex];
+  const currentWorkTime = currentDay.isOpen ? `${currentDay.from} - ${currentDay.to}` : 'Closed';
+
+  const details = workDays.map((day, index) => {
+    return {
+      day: weekDays[index],
+      time: day.isOpen ? `${day.from} - ${day.to}` : 'Closed',
+      isToday: index === todayIndex,
+    };
+  });
+
+  return { currentWorkTime, details };
 };
