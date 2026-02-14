@@ -1,0 +1,15 @@
+.container {
+    padding: 38px 0 80px;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 53px 0 80px;
+    }    
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        padding: 64px 32px 80px;
+    }    
+}
