@@ -33,7 +33,6 @@ const NewsPage = () => {
         }
 
         const res = await api.get<NewsResponse>('/news', { params })
-        console.log(res.data);
 
         setNews(res.data.results);
         setTotalPages(res.data.totalPages);

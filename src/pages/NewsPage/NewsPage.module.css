@@ -1,5 +1,5 @@
 .newsContainer {
-    padding-bottom: 80px;
+    padding: 38px 0 80px;
 }
 
 .headerBlock {
@@ -18,6 +18,10 @@
 }
 
 @media screen and (min-width: 768px) {
+    .newsContainer {
+        padding: 53px 0 80px;
+    }
+
     .headerBlock {
         flex-direction: row;
         gap: 0;
@@ -32,7 +36,7 @@
 
 @media screen and (min-width: 1280px) {
     .newsContainer {
-        padding: 0 32px 80px;
+        padding: 64px 32px 80px;
     }
 
     .headerBlock {
