@@ -13,8 +13,10 @@ export const WorkingHours = ({ workDays }: WorkingHoursProps) => {
 
     if (details.length === 0) {
         return (
-            <div className={css.bage}>
-                <p className={css.text}>{currentWorkTime}</p>
+            <div className={css.container}>
+                <div className={css.bage}>
+                    <p>{currentWorkTime}</p>
+                </div>
             </div>
         )
     }
