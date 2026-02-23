@@ -1,0 +1,162 @@
+.container {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: var(--white);
+    border-radius: 16px;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.img {
+    height: 178px;
+    width: 287px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.info {
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.rating {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-size: 14px;
+    line-height: 1.29;
+}
+
+.rating svg {
+    fill: var(--accent)
+}
+
+.chracteristicsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+}
+
+.chracteristicCategoty {   
+    font-size: 10px;
+    line-height: 1.4;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+}
+
+.chracteristicData {
+    font-size: 12px;
+    line-height: 1.17;   
+}
+
+.text {
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.02em;
+}
+
+.footer {
+    width: 100%;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.btnsContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    border-radius: 30px;
+}
+
+.btnMore {
+    flex-grow: 1;
+    padding: 14px;
+    background-color: var(--accent);
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.03em;
+    color: var(--white);
+}
+
+.btnLike {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background-color: var(--accent-lightest);
+}
+
+.btnLike svg {
+    stroke: var(--accent);
+    fill: transparent;
+}
+
+
+@media screen and (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 342px;
+    }
+
+    .img {
+        width: 294px;
+    }
+
+    .title, .price {
+        font-size: 18px;
+        line-height: 1.33;
+    }
+
+    .rating {
+        line-height: 1.43;
+    }
+
+    .btnMore {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+
+    .btnLike {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 363px;
+    }
+
+    .img {
+        width: 315px;
+    }
+
+    .title {
+        font-size: 18px;
+        line-height: 1.33;
+    }
+}
