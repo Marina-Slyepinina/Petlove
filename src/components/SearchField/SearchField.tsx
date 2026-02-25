@@ -20,14 +20,19 @@ export const SearchField = ({ onSearch, placeholder, className }: SearchFieldPro
     setQuery('');
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSearch = () => {
     onSearch(query);
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      onSearch(query);
+    }
+  }
+
   return (
-    <form className={css.form} onSubmit={handleSubmit}>
-      <input type="text" className={clsx(css.input, className)} placeholder={placeholder} value={query} onChange={handleChange}/>
+    <div className={css.wrapper}>
+      <input type="text" className={clsx(css.input, className)} placeholder={placeholder} value={query} onChange={handleChange} onKeyDown={handleKeyDown} />
 
       <div className={css.actionsBlock}>
         {query && <button type="button" onClick={handleClear}>
@@ -35,12 +40,12 @@ export const SearchField = ({ onSearch, placeholder, className }: SearchFieldPro
             <use href='sprite.svg#cross-small'></use>
           </svg>
         </button>}
-        <button type="submit">
+        <button type="button" onClick={handleSearch}>
           <svg className={css.searchSvg}>
             <use href='sprite.svg#search'></use>
           </svg>
         </button>
       </div>
-    </form>
+    </div>
   );
 };
