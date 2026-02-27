@@ -1,30 +1,28 @@
-export type Categories = 'found' | 'free' | 'lost' | 'sell';
-export type Sex = 'female' | 'male' | 'multiple' | 'unknown';
-export type Species = 'dog'
-  | 'cat'
-  | 'monkey'
-  | 'bird'
-  | 'snake'
-  | 'turtle'
-  | 'lizard'
-  | 'frog'
-  | 'fish'
-  | 'ants'
-  | 'bees'
-  | 'butterfly'
-  | 'spider'
-  | 'scorpion';
+export interface NoticeFilters {
+  keyword: string;
+  category: string;
+  sex: string;
+  species: string;
+  locationId: string;
+  sortBy: string;
+  page: number;
+}
+
+export interface OptionItem {
+  _id: string;
+  name: string;
+}
 
 export interface Note {
   _id: string;
-  species: Species;
-  category: Categories;
+  species: string;
+  category: string;
   price?: number;
   title: string;
   name: string;
   birthday: string;
   comment: string;
-  sex: Sex;
+  sex: string;
   location: string;
   imgURL: string;
   createdAt: string;
@@ -34,13 +32,13 @@ export interface Note {
 }
 
 export interface Pet {
-  _id: string;    
+  _id: string;
   name: string;
   title: string;
   imgURL: string;
-  species: Species;
+  species: string;
   birthday: string;
-  sex: Sex;
+  sex: string;
   createdAt: string;
   updatedAt: string;
 }
