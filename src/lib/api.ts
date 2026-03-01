@@ -19,3 +19,23 @@ export const getFriends = async () => {
   const res = await api.get<Friend[]>('/friends');
   return res.data;
 };
+
+export const getCategories = async () => {
+  const res = await api.get<string[]>('/notices/categories');
+  return res.data;
+};
+
+export const getSpecies = async () => {
+  const res = await api.get<string[]>('/notices/species');
+  return res.data;
+};
+
+export const getGenders = async () => {
+  const res = await api.get<string[]>('/notices/sex');
+  return res.data;
+};
+
+export const getLocations = async () => {
+  const res = await api.get<string[]>('/cities/locations');
+  return res.data;
+};
