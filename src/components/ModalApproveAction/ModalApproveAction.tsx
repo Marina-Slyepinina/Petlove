@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { Modal } from '../Modal/Modal'
+import { useAuthStore } from '../../store/authStore';
 import css from './ModalApproveAction.module.css'
 
 interface ModalApproveActionProps {
@@ -7,6 +8,9 @@ interface ModalApproveActionProps {
 }
 
 export const ModalApproveAction = ({ onClose }: ModalApproveActionProps) => {
+
+  const { logout } = useAuthStore();
+
   return (
     <Modal onClose={onClose}>
       <div className={css.modalWrapper}>
@@ -15,7 +19,7 @@ export const ModalApproveAction = ({ onClose }: ModalApproveActionProps) => {
         </div>
         <p className={css.text}>Already leaving?</p>
         <div className={css.btnContainer}>
-          <button type="button" className={clsx(css.btn, css.accent)}>Yes</button>
+          <button type="button" className={clsx(css.btn, css.accent)} onClick={logout}>Yes</button>
           <button type="button" onClick={onClose} className={css.btn}>Cancel</button>
         </div>
       </div>
