@@ -1,0 +1,77 @@
+.selectWrapper {
+  width: 100%;
+  position: relative;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+}
+
+.selectHeader {
+  padding: 12px;
+  border-radius: 30px;
+
+  display: flex;
+  justify-content: space-between;
+
+  background-color: var(--white);
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.chevron {
+  fill: none;
+  stroke: var(--text-main);
+}
+
+.open {
+  transform: rotate(180deg);
+}
+
+.optionsList {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  border-radius: 15px;
+  background-color: var(--white);
+  top: calc(100% + 4px);
+}
+
+.optionItem {
+  text-transform: capitalize;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.optionItem:hover {
+  color: var(--text-main);
+  transition: color 0.4s ease-in-out;
+}
+
+.selected {
+  color: var(--accent);
+}
+
+@media screen and (min-width: 768px) {
+  .selectWrapper {
+    width: 170px;
+  }
+
+  .selectHeader {
+    padding: 14px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .optionItem {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
