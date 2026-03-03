@@ -1,5 +1,6 @@
 import axios from 'axios';
 import type { Friend } from '../types/friends';
+import type { City } from '../types/notices';
 
 export const api = axios.create({
   baseURL: 'https://petlove.b.goit.study/api',
@@ -32,6 +33,11 @@ export const getSpecies = async () => {
 
 export const getGenders = async () => {
   const res = await api.get<string[]>('/notices/sex');
+  return res.data;
+};
+
+export const getCities = async (value: string) => {
+  const res = await api.get<City[]>('/cities', { params: { keyword: value } });
   return res.data;
 };
 
