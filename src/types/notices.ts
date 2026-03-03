@@ -8,9 +8,12 @@ export interface NoticeFilters {
   page: number;
 }
 
-export interface OptionItem {
+export interface City {
   _id: string;
-  name: string;
+  useCounty?: string;
+  stateEn?: string;
+  cityEn: string;
+  countyEn?: string;
 }
 
 export interface Note {
