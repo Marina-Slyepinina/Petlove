@@ -2,10 +2,10 @@ import type { News } from "../../types/news";
 import { formatDate } from "../../lib/utils";
 import css from "./NewsItem.module.css";
 
-export const NewsItem = ({ _id, imgUrl, title, text, date, url }: News) => {
-  
+export const NewsItem = ({ imgUrl, title, text, date, url }: News) => {
+
   return (
-    <li key={_id} className={css.card}>
+    <li className={css.card}>
       <img src={imgUrl} alt={title} className={css.img} />
       <div className={css.cardInfo}>
         <h2 className={css.cardTitle}>{title}</h2>

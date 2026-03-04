@@ -9,7 +9,7 @@ interface NewsListProps {
 export const NewsList = ({ data }: NewsListProps) => {
   return (
     <ul className={css.list}>
-      {data.map((item) => <NewsItem {...item} />)}
+      {data.map((item) => <NewsItem key={item._id}  {...item} />)}
     </ul>
   )
 }
