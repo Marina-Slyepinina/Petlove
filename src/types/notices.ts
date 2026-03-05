@@ -4,7 +4,8 @@ export interface NoticeFilters {
   sex: string;
   species: string;
   locationId: string;
-  sortBy: string;
+  byPopularity?: boolean;
+  byPrice?: boolean;
   page: number;
 }
 
