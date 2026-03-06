@@ -1,0 +1,78 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+:global(.location__control) {
+  height: 48px !important;
+  border: 1px solid transparent !important;
+  border-radius: 30px !important;
+  padding: 12px !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 1.29 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--text-main) !important;
+}
+
+:global(.location__input-container),
+:global(.location__value-container),
+:global(.location__clear-indicator) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+:global(.location__control--is-focused) {
+  box-shadow: none !important;
+  border: 1px solid var(--accent) !important;
+}
+
+:global(.location__placeholder) {
+  color: var(--text-main) !important;
+}
+
+:global(.location__menu) {
+  border-radius: 15px !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin-top: 4px !important;
+}
+
+:global(.location__option) {
+  color: var(--text-muted) !important;
+  background-color: transparent !important;
+}
+
+:global(.location__option:hover) {
+  color: var(--text-main) !important;
+  cursor: pointer;
+}
+
+:global(.location__single-value) {
+  color: var(--text-main) !important;
+  box-shadow: none !important;
+}
+
+:global(.location__indicator-separator),
+:global(.location__dropdown-indicator) {
+  display: none !important;
+}
+
+:global(.location__clear-indicator) {
+  color: var(--text-main) !important;
+  width: 18px !important;
+  height: 18px !important;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    max-width: 227px;
+  }
+
+  :global(.location__control) {
+    padding: 14px !important;
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+  }
+}
