@@ -58,8 +58,8 @@ export const useNoticesStore = create<NoticesState>((set, get) => ({
     set((state) => ({
       filters: {
         ...state.filters,
-        ...newFilters,
         page: 1,
+        ...newFilters,
       },
     }));
 
