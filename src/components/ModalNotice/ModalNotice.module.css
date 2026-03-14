@@ -1,0 +1,142 @@
+.container {
+  width: 335px;
+  padding: 40px 28px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.imgWrapper {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.categoryBadge {
+  position: absolute;
+  left: 0;
+  border-radius: 30px;
+  padding: 8px 14px;
+
+  color: var(--accent);
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+
+  background-color: var(--accent-lightest);
+}
+
+img {
+  border-radius: 100px;
+}
+
+.svg {
+  fill: none;
+  stroke: var(--white);
+  margin-left: 8px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.rating span {
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+.star {
+  fill: rgba(38, 38, 38, 0.05);
+}
+
+.accentStar {
+  fill: var(--accent);
+}
+
+.chracteristicsList {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.chracteristicsItem {
+  letter-spacing: -0.02em;
+}
+
+.chracteristicCategoty {
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.chracteristicData {
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.btnWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 473px;
+    padding: 40px 70px;
+  }
+
+  .imgWrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .categoryBadge {
+    font-size: 14px;
+    line-height: 1.29;
+  }
+
+  .title {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .rating {
+    margin-bottom: 20px;
+  }
+
+  .price {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
