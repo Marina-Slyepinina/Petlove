@@ -1,6 +1,7 @@
 import axios from 'axios';
 import type { Friend } from '../types/friends';
 import type { City } from '../types/notices';
+import type { UserFullData } from '../types/user';
 
 export const api = axios.create({
   baseURL: 'https://petlove.b.goit.study/api',
@@ -43,5 +44,10 @@ export const getCities = async (value: string) => {
 
 export const getLocations = async () => {
   const res = await api.get<string[]>('/cities/locations');
+  return res.data;
+};
+
+export const getUserFullInfo = async () => {
+  const res = await api.get<UserFullData>('users/current/full');
   return res.data;
 };
