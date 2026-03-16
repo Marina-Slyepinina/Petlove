@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useFavoritesStore } from '../../store/favoritesStore';
 import type { Note } from '../../types/notices';
 import { Modal } from '../Modal/Modal'
 import { NavButton } from '../NavButton/NavButton';
@@ -12,6 +13,21 @@ interface ModalNoticeProps {
 const MAX_STARS = 5;
 
 export const ModalNotice = ({ onClose, note }: ModalNoticeProps) => {
+
+    const addFavorite = useFavoritesStore(state => state.addFavorite);
+    const removeFavorite = useFavoritesStore(state => state.removeFavorite);
+    const favoriteIds = useFavoritesStore(state => state.favoriteIds);
+    const isFavorite = favoriteIds.find(item => item === note._id);
+
+    const handleLikeBtn = (id: string) => {
+
+        if (favoriteIds.includes(id)) {
+            removeFavorite(id);
+            return;
+        };
+
+        addFavorite(id);
+    }
 
     return (
         <Modal onClose={onClose}>
@@ -65,12 +81,15 @@ export const ModalNotice = ({ onClose, note }: ModalNoticeProps) => {
                 <div className={css.price}>${note.price || ' Free'}</div>
 
                 <div className={css.btnWrapper}>
-                    <NavButton to={'/login'} variant='primary' isFullWidth={true}>Add to
+                    <NavButton to={''} variant='primary' isFullWidth={true} onClick={() => handleLikeBtn(note._id)}>{isFavorite ? 'Remove' : 'Add to'}
                         <svg width={18} height={18} className={css.svg}>
-                            <use href='sprite.svg#heart'></use>
+                            {isFavorite ?
+                                <use href='sprite.svg#trash'></use>
+                                : <use href='sprite.svg#heart'></use>
+                            }
                         </svg>
                     </NavButton>
-                    <NavButton to={'/register'} variant='secondary' isFullWidth={true}>Contact</NavButton>
+                    <NavButton to={''} variant='secondary' isFullWidth={true}>Contact</NavButton>
                 </div>
             </div>
         </Modal>
