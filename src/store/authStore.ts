@@ -1,6 +1,6 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 import { api, clearAuthHeader, setAuthHeader } from '../lib/api';
-import type { AuthResponse, AuthState } from "../types/auth";
+import type { AuthResponse, AuthState } from '../types/auth';
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
@@ -15,11 +15,17 @@ export const useAuthStore = create<AuthState>((set) => ({
 
     localStorage.setItem('token', data.token);
 
-    set({
-      user: { name: data.name, email: data.email },
-      token: data.token,
-      isLoggedIn: true,
-    });
+    try {
+      const { data: currentUser } = await api.get('/users/current/full');
+
+      set({
+        user: currentUser,
+        token: data.token,
+        isLoggedIn: true,
+      });
+    } catch {
+      console.error('Failed to fetch full profile after register');
+    }
   },
 
   login: async (credentials) => {
@@ -29,11 +35,17 @@ export const useAuthStore = create<AuthState>((set) => ({
 
     localStorage.setItem('token', data.token);
 
-    set({
-      user: { name: data.name, email: data.email },
-      token: data.token,
-      isLoggedIn: true,
-    });
+    try {
+      const { data: currentUser } = await api.get('/users/current/full');
+
+      set({
+        user: currentUser,
+        token: data.token,
+        isLoggedIn: true,
+      });
+    } catch {
+      console.error('Failed to fetch full profile after login');
+    }
   },
 
   logout: async () => {
@@ -55,10 +67,10 @@ export const useAuthStore = create<AuthState>((set) => ({
       set({ isRefreshing: true });
       setAuthHeader(persistedToken);
 
-      const { data } = await api.get('users/current');
+      const { data: currentUser } = await api.get('/users/current/full');
 
       set({
-        user: data,
+        user: currentUser,
         token: persistedToken,
         isLoggedIn: true,
       });
