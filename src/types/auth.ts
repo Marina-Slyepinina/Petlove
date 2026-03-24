@@ -1,3 +1,5 @@
+import type { UserFullData } from './user';
+
 export interface RegisterPayload {
   name: string;
   email: string;
@@ -16,7 +18,7 @@ export interface AuthResponse {
 }
 
 export interface AuthState {
-  user: { name: string; email: string } | null;
+  user: UserFullData | null;
   token: string | null;
   isLoggedIn: boolean;
   isRefreshing: boolean;
