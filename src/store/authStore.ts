@@ -86,4 +86,22 @@ export const useAuthStore = create<AuthState>((set) => ({
       set({ isRefreshing: false });
     }
   },
+
+  updateUser: async (userData: {
+    name?: string;
+    email?: string;
+    phone?: string;
+    avatar?: string;
+  }) => {
+    try {
+      const { data } = await api.patch('/users/current/edit', userData);
+
+      set((state) => ({
+        user: state.user ? { ...state.user, ...data } : data,
+      }));
+    } catch (error) {
+      console.error('Update error:', error);
+      throw error;
+    }
+  },
 }));

@@ -27,4 +27,10 @@ export interface AuthState {
   login: (credentials: LoginPayload) => Promise<void>;
   logout: () => void;
   refreshUser: () => Promise<void>;
+  updateUser: (userData: {
+    name?: string;
+    email?: string;
+    phone?: string;
+    avatar?: string;
+  }) => Promise<void>;
 }
