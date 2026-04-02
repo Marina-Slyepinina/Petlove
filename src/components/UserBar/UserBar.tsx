@@ -9,12 +9,11 @@ export const UserBar = () => {
   const isHome = location.pathname === "/"
 
   const user = useAuthStore(state => state.user);
-  console.log(user);
 
   return (
     <NavLink to="/profile" className={css.userBar}>
-      <div className={clsx(css.userIcon, isHome && css.userIconWhite)}>
-        {user?.avatar ? <img src={user.avatar} alt="Avatar" className={css.userAvatar} />
+      <div className={clsx(css.avatarWrapper, isHome && css.userIconWhite)}>
+        {user?.avatar ? <img src={user.avatar} alt="Avatar" className={css.avatarImage} />
           : <svg>
             <use href='sprite.svg#user'></use>
           </svg>}
