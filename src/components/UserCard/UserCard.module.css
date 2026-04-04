@@ -1,0 +1,193 @@
+.cardContainer {
+  width: 100%;
+  border-radius: 30px;
+  padding: 18px 20px 40px;
+  background-color: var(--white);
+
+  font-size: 14px;
+  line-height: 1.29;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userIconWrapper {
+  display: flex;
+  gap: 4px;
+  border-radius: 30px;
+  padding: 10px 14px;
+  background-color: var(--accent);
+
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.userIconWrapper svg {
+  fill: var(--white);
+  stroke: var(--white);
+}
+
+.userEditWrapper {
+  border-radius: 30px;
+  padding: 10px;
+  background-color: var(--accent-lightest);
+}
+
+.userEditWrapper svg {
+  fill: transparent;
+  stroke: var(--accent);
+}
+
+.userBlock {
+}
+
+.userAvatarBlock {
+  margin: 28px 0;
+}
+
+.userAvatarWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  width: 94px;
+  height: 94px;
+  margin: 0 auto;
+  background-color: var(--accent-lightest);
+}
+
+.userAvatarWrapper svg {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.uploadText {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-align: center;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.userInformationBlock {
+  margin-bottom: 40px;
+}
+
+.userInformationList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.userInformationTitle {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.userInformationItem {
+  border: 1px solid var(--border-dark);
+  border-radius: 30px;
+  padding: 12px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+/* ---------------------------------------------------------------------- */
+
+.petsBlockHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.petsBlockHeader p {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.addPetBtn {
+  border-radius: 30px;
+  padding: 10px 16px;
+  background-color: var(--accent);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+.logOutBtn {
+  border-radius: 30px;
+  padding: 12px 28px;
+  background-color: var(--accent-lightest);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---------------------------------------------------------------------- */
+
+@media screen and (min-width: 768px) {
+  .cardContainer {
+    padding: 40px;
+  }
+
+  .userAvatarBlock {
+    margin: 0 0 20px 0;
+  }
+
+  .userAvatarWrapper {
+    width: 110px;
+    height: 110px;
+  }
+
+  .userInformationTitle {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .userInformationItem {
+    padding: 16px;
+  }
+
+  .userInformationItem {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279.8px) {
+  .userInformationList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .userInformationItem {
+    width: 305px;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+
+@media screen and (min-width: 1280px) {
+  .cardContainer {
+    width: 520px;
+  }
+}
