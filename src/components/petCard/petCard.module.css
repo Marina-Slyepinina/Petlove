@@ -1,0 +1,112 @@
+.petCard {
+  display: flex;
+  position: relative;
+
+  border: 1px solid var(--border-dark);
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.petCardImage {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 14px;
+}
+
+.petCardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 153px;
+}
+
+.petCardTitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+}
+
+.petCardChracteristics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chracteristicItem {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.chracteristicCategoty {
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.chracteristicData {
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+.deleteBtn {
+  position: absolute;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--accent-lightest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteBtn svg {
+  fill: none;
+  stroke: var(--accent);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279.8px) {
+  .petCard {
+    width: 305px;
+  }
+
+  .petCardImage {
+    width: 75px;
+    height: 75px;
+  }
+
+  .deleteBtn {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .petCard {
+    padding: 20px;
+  }
+
+  .petCardImage {
+    width: 90px;
+    height: 90px;
+    margin-right: 25px;
+  }
+
+  .petCardInfo {
+    gap: 12px;
+    max-width: 250px;
+    align-self: center;
+  }
+
+  .petCardChracteristics {
+    gap: 24px;
+  }
+
+  .deleteBtn {
+    right: 20px;
+    width: 38px;
+    height: 38px;
+  }
+}
