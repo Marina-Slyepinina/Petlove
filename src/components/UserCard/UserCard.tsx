@@ -1,8 +1,10 @@
 import axios from "axios";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { NavLink } from "react-router";
 import { useAuthStore } from "../../store/authStore";
 import { CLOUDINARY } from "../../constants";
+import { ModalEditUser } from "../ModalEditUser/ModalEditUser";
+import { PetCard } from "../petCard/petCard";
 import css from "./UserCard.module.css";
 
 export const UserCard = () => {
@@ -11,6 +13,8 @@ export const UserCard = () => {
     const updateUser = useAuthStore((state) => state.updateUser);
 
     const fileInputRef = useRef<HTMLInputElement>(null);
+
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleUploadClick = () => {
         if (!userData?.avatar && fileInputRef.current) {
@@ -51,7 +55,7 @@ export const UserCard = () => {
                         <use href="sprite.svg#user"></use>
                     </svg>
                 </div>
-                <button type="button" className={css.userEditWrapper}>
+                <button type="button" className={css.userEditWrapper} onClick={() => setIsOpen(!isOpen)}>
                     <svg width={18} height={18}>
                         <use href="sprite.svg#edit"></use>
                     </svg>
@@ -66,7 +70,6 @@ export const UserCard = () => {
                         accept="image/*"
                         style={{ display: "none" }}
                     />
-
                     <div className={css.userAvatarWrapper}>
                         {userData?.avatar ? (
                             <img src={userData.avatar} alt="User's photo" className={css.avatarImage} />
@@ -76,14 +79,12 @@ export const UserCard = () => {
                             </svg>
                         )}
                     </div>
-
                     {!userData?.avatar && (
                         <p className={css.uploadText} onClick={handleUploadClick}>
                             Upload photo
                         </p>
                     )}
                 </div>
-
                 <div className={css.userInformationBlock}>
                     <p className={css.userInformationTitle}>My information</p>
                     <div className={css.userInformationList}>
@@ -99,8 +100,16 @@ export const UserCard = () => {
                     <p>My pets</p>
                     <NavLink to="#" className={css.addPetBtn}>Add pet +</NavLink>
                 </div>
+
+                <ul className={css.petList}>
+                    {userData?.pets.map(pet => (
+                        <PetCard key={pet._id} {...pet} />
+                    ))}
+                </ul>
             </div>
             <button type="button" className={css.logOutBtn}>Log out</button>
+
+            {isOpen && <ModalEditUser userData={userData} onClose={() => setIsOpen(false)} />}
         </div>
     )
 }
