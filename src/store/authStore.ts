@@ -104,4 +104,18 @@ export const useAuthStore = create<AuthState>((set) => ({
       throw error;
     }
   },
+
+  removeUserPet: async (petId: string) => {
+    set((state) => {
+      if (!state.user) return state;
+
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          pets: state.user.pets.filter((pet) => pet._id !== petId),
+        },
+      };
+    });
+  },
 }));

@@ -33,4 +33,5 @@ export interface AuthState {
     phone?: string;
     avatar?: string;
   }) => Promise<void>;
+  removeUserPet: (petId: string) => Promise<void>;
 }
