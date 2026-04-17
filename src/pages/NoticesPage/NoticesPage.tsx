@@ -30,7 +30,7 @@ const NoticesPage = () => {
       <Title title="Find your favorite pet" />
 
       <NoticesFilters />
-      <NoticesList data={notices} />
+      <NoticesList data={notices} variant="like" />
 
       <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
     </div>
