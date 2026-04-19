@@ -19,14 +19,14 @@ export const ModalNotice = ({ onClose, note }: ModalNoticeProps) => {
     const favoriteIds = useFavoritesStore(state => state.favoriteIds);
     const isFavorite = favoriteIds.find(item => item === note._id);
 
-    const handleLikeBtn = (id: string) => {
+    const handleLikeBtn = (note: Note) => {
 
-        if (favoriteIds.includes(id)) {
-            removeFavorite(id);
+        if (favoriteIds.includes(note._id)) {
+            removeFavorite(note._id);
             return;
         };
 
-        addFavorite(id);
+        addFavorite(note);
     }
 
     return (
@@ -81,7 +81,7 @@ export const ModalNotice = ({ onClose, note }: ModalNoticeProps) => {
                 <div className={css.price}>${note.price || ' Free'}</div>
 
                 <div className={css.btnWrapper}>
-                    <NavButton to={''} variant='primary' isFullWidth={true} onClick={() => handleLikeBtn(note._id)}>{isFavorite ? 'Remove' : 'Add to'}
+                    <NavButton to={''} variant='primary' isFullWidth={true} onClick={() => handleLikeBtn(note)}>{isFavorite ? 'Remove' : 'Add to'}
                         <svg width={18} height={18} className={css.svg}>
                             {isFavorite ?
                                 <use href='sprite.svg#trash'></use>

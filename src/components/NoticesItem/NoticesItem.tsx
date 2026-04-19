@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import clsx from "clsx";
 import type { Note } from "../../types/notices";
 import { useAuthStore } from "../../store/authStore";
@@ -6,7 +7,6 @@ import { useFavoritesStore } from "../../store/favoritesStore";
 import { ModalAttention } from "../ModalAttention/ModalAttention";
 import { ModalNotice } from "../ModalNotice/ModalNotice";
 import css from "./NoticesItem.module.css";
-import { useLocation } from "react-router";
 
 interface NoticesItemProps {
     note: Note;
@@ -41,18 +41,18 @@ export const NoticesItem = ({ note, variant }: NoticesItemProps) => {
         setIsModalLearnMoreOpen(true)
     }
 
-    const handleLikeBtn = (id: string) => {
+    const handleLikeBtn = (note: Note) => {
         if (!isLoggedIn) {
             setIsModalAttentionOpen(true)
             return;
         }
 
-        if (favoriteIds.includes(id)) {
-            removeFavorite(id);
+        if (favoriteIds.includes(note._id)) {
+            removeFavorite(note._id);
             return;
         };
 
-        addFavorite(id);
+        addFavorite(note);
     }
 
     return (
@@ -99,12 +99,12 @@ export const NoticesItem = ({ note, variant }: NoticesItemProps) => {
                 <div className={css.price}>${note.price || ' Free'}</div>
                 <div className={css.btnsContainer}>
                     <button type="button" className={clsx(css.btn, css.btnMore)} onClick={handleLearnMoreBtn}>Learn more</button>
-                    {variant == 'like' && <button type="button" className={clsx(css.btn, css.btnLike)} onClick={() => handleLikeBtn(note._id)}>
+                    {variant == 'like' && <button type="button" className={clsx(css.btn, css.btnLike)} onClick={() => handleLikeBtn(note)}>
                         <svg width={18} height={18} className={clsx(isFavorite && css.filled)}>
                             <use href="sprite.svg#heart"></use>
                         </svg>
                     </button>}
-                    {variant == 'delete' && <button type="button" className={clsx(css.btn, css.btnDelete)} onClick={() => handleLikeBtn(note._id)}>
+                    {variant == 'delete' && <button type="button" className={clsx(css.btn, css.btnDelete)} onClick={() => handleLikeBtn(note)}>
                         <svg width={18} height={18} className={clsx(isFavorite && css.filled)}>
                             <use href="sprite.svg#trash"></use>
                         </svg>
