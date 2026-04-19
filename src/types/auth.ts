@@ -1,3 +1,4 @@
+import type { Note } from './notices';
 import type { UserFullData } from './user';
 
 export interface RegisterPayload {
@@ -34,4 +35,6 @@ export interface AuthState {
     avatar?: string;
   }) => Promise<void>;
   removeUserPet: (petId: string) => Promise<void>;
+  addUserFavoriteNotice: (note: Note) => Promise<void>;
+  removeUserFavoriteNotice: (id: string) => Promise<void>;
 }
