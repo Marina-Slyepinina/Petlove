@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { api, clearAuthHeader, setAuthHeader } from '../lib/api';
 import type { AuthResponse, AuthState } from '../types/auth';
+import type { Note } from '../types/notices';
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
@@ -114,6 +115,37 @@ export const useAuthStore = create<AuthState>((set) => ({
         user: {
           ...state.user,
           pets: state.user.pets.filter((pet) => pet._id !== petId),
+        },
+      };
+    });
+  },
+
+  removeUserFavoriteNotice: async (id: string) => {
+    set((state) => {
+      if (!state.user || !state.user.noticesFavorites) return state;
+
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          noticesFavorites: state.user.noticesFavorites.filter((notice) => notice._id !== id),
+        },
+      };
+    });
+  },
+
+  addUserFavoriteNotice: async (note: Note) => {
+    set((state) => {
+      if (!state.user) return state;
+
+      const isAlreadyInFavorites = state.user.noticesFavorites.some((fav) => fav._id === note._id);
+      if (isAlreadyInFavorites) return state;
+
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          noticesFavorites: [note, ...state.user.noticesFavorites],
         },
       };
     });
