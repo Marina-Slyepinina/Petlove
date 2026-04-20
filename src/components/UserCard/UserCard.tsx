@@ -5,6 +5,7 @@ import { useAuthStore } from "../../store/authStore";
 import { CLOUDINARY } from "../../constants";
 import { ModalEditUser } from "../ModalEditUser/ModalEditUser";
 import { PetCard } from "../petCard/petCard";
+import { ModalApproveAction } from "../ModalApproveAction/ModalApproveAction";
 import css from "./UserCard.module.css";
 
 export const UserCard = () => {
@@ -14,7 +15,8 @@ export const UserCard = () => {
 
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isModalEditUserOpen, setIsModalEditUserOpen] = useState(false);
+    const [isModalApproveActionOpen, setIsModalApproveActionOpen] = useState(false);
 
     const handleUploadClick = () => {
         if (!userData?.avatar && fileInputRef.current) {
@@ -55,7 +57,7 @@ export const UserCard = () => {
                         <use href="sprite.svg#user"></use>
                     </svg>
                 </div>
-                <button type="button" className={css.userEditWrapper} onClick={() => setIsOpen(!isOpen)}>
+                <button type="button" className={css.userEditWrapper} onClick={() => setIsModalEditUserOpen(!isModalEditUserOpen)}>
                     <svg width={18} height={18}>
                         <use href="sprite.svg#edit"></use>
                     </svg>
@@ -98,7 +100,7 @@ export const UserCard = () => {
             <div className={css.petsBlock}>
                 <div className={css.petsBlockHeader}>
                     <p>My pets</p>
-                    <NavLink to="#" className={css.addPetBtn}>Add pet +</NavLink>
+                    <NavLink to="/addPet" className={css.addPetBtn}>Add pet +</NavLink>
                 </div>
 
                 <ul className={css.petList}>
@@ -107,9 +109,10 @@ export const UserCard = () => {
                     ))}
                 </ul>
             </div>
-            <button type="button" className={css.logOutBtn}>Log out</button>
+            <button type="button" className={css.logOutBtn} onClick={() => setIsModalApproveActionOpen(true)}>Log out</button>
 
-            {isOpen && <ModalEditUser userData={userData} onClose={() => setIsOpen(false)} />}
+            {isModalEditUserOpen && <ModalEditUser userData={userData} onClose={() => setIsModalEditUserOpen(false)} />}
+            {isModalApproveActionOpen && <ModalApproveAction onClose={() => setIsModalApproveActionOpen(false)} />}
         </div>
     )
 }

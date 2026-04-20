@@ -6,6 +6,7 @@
 
   font-size: 14px;
   line-height: 1.29;
+  height: min-content;
 }
 
 .cardHeader {
@@ -39,9 +40,6 @@
 .userEditWrapper svg {
   fill: transparent;
   stroke: var(--accent);
-}
-
-.userBlock {
 }
 
 .userAvatarBlock {
@@ -108,12 +106,22 @@
   letter-spacing: -0.03em;
 }
 
-/* ---------------------------------------------------------------------- */
+.petList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 .petsBlockHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.petsBlockHeader:last-child {
+  margin-bottom: 40px;
 }
 
 .petsBlockHeader p {
@@ -141,8 +149,6 @@
   color: var(--accent);
 }
 
-/* ---------------------------------------------------------------------- */
-
 @media screen and (min-width: 768px) {
   .cardContainer {
     padding: 40px;
@@ -164,11 +170,12 @@
 
   .userInformationItem {
     padding: 16px;
-  }
-
-  .userInformationItem {
     font-size: 16px;
     line-height: 1.25;
+  }
+
+  .petsBlockHeader:last-child {
+    margin-bottom: 80px;
   }
 }
 
@@ -182,9 +189,12 @@
   .userInformationItem {
     width: 305px;
   }
-}
 
-/* ---------------------------------------------------------------------- */
+  .petList {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
 
 @media screen and (min-width: 1280px) {
   .cardContainer {
