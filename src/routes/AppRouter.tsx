@@ -14,6 +14,7 @@ const NewsPage = lazy(() => import('../pages/NewsPage/NewsPage'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage/NoticesPage'));
 const OurFriendsPage = lazy(() => import('../pages/OurFriendsPage/OurFriendsPage'));
 const ProfilePage = lazy(() => import('../pages/ProfilePage/ProfilePage'));
+const AddPetPage = lazy(() => import('../pages/AddPetPage/AddPetPage'));
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       { path: 'register', element: <RestrictedRoute component={<RegisterPage />} redirectTo='/profile' /> },
       { path: 'login', element: <RestrictedRoute component={<LoginPage />} redirectTo='/profile' /> },
       { path: 'profile', element: <PrivateRoute component={<ProfilePage />} redirectTo='/login' /> },
+      { path: 'addPet', element: <PrivateRoute component={<AddPetPage />} redirectTo='/login' /> },
       { path: '*', element: <NotFoundPage /> }
     ],
   },
