@@ -4,6 +4,7 @@ import clsx from "clsx";
 import type { Note } from "../../types/notices";
 import { useAuthStore } from "../../store/authStore";
 import { useFavoritesStore } from "../../store/favoritesStore";
+import { useViewedStore } from "../../store/useViewedStore";
 import { ModalAttention } from "../ModalAttention/ModalAttention";
 import { ModalNotice } from "../ModalNotice/ModalNotice";
 import css from "./NoticesItem.module.css";
@@ -23,6 +24,7 @@ export const NoticesItem = ({ note, variant }: NoticesItemProps) => {
     const removeFavorite = useFavoritesStore(state => state.removeFavorite);
     const favoriteIds = useFavoritesStore(state => state.favoriteIds);
     const isFavorite = favoriteIds.find(item => item === note._id)
+    const addViewed = useViewedStore(state => state.addViewed);
 
     useEffect(() => {
         fetchFavorites();
@@ -39,6 +41,7 @@ export const NoticesItem = ({ note, variant }: NoticesItemProps) => {
             return;
         }
         setIsModalLearnMoreOpen(true)
+        addViewed(note);
     }
 
     const handleLikeBtn = (note: Note) => {
