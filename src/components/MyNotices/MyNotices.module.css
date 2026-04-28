@@ -1,0 +1,44 @@
+.btn {
+  border-radius: 30px;
+  padding: 12px;
+  width: 123px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+
+  background-color: var(--white);
+  transition: all 0.1s ease-in-out;
+}
+
+.btn:not(:last-child) {
+  margin-right: 10px;
+}
+
+.active {
+  color: var(--white);
+  background-color: var(--accent);
+}
+
+.noticesList {
+  margin: 20px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
+    padding: 14px;
+    width: 142px;
+
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .btn:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .noticesList {
+    max-width: 664px;
+  }
+}
