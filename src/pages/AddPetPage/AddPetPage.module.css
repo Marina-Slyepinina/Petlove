@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.petDetails {
+  padding: 28px 20px;
+  border-radius: 30px;
+  background-color: var(--white);
+}
+
+.petDetailsHeader {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--text-muted);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    gap: 16px;
+  }
+
+  .petDetails {
+    padding: 40px 136px;
+  }
+
+  .petDetailsHeader {
+    margin-bottom: 40px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .petDetails {
+    padding: 60px 80px;
+  }
+}
