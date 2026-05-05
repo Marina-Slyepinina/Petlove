@@ -4,7 +4,7 @@ import { Layout } from '../components/Layout/Layout';
 import { ErrorPage } from '../pages/ErrorPage/ErrorPage';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
-import { getFriends } from '../lib/api';
+import { getFriends, getSpecies } from '../lib/api';
 import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       { path: 'register', element: <RestrictedRoute component={<RegisterPage />} redirectTo='/profile' /> },
       { path: 'login', element: <RestrictedRoute component={<LoginPage />} redirectTo='/profile' /> },
       { path: 'profile', element: <PrivateRoute component={<ProfilePage />} redirectTo='/login' /> },
-      { path: 'addPet', element: <PrivateRoute component={<AddPetPage />} redirectTo='/login' /> },
+      { path: 'addPet', element: <PrivateRoute component={<AddPetPage />} redirectTo='/login' />, loader: getSpecies },
       { path: '*', element: <NotFoundPage /> }
     ],
   },
