@@ -34,6 +34,7 @@ export interface AuthState {
     phone?: string;
     avatar?: string;
   }) => Promise<void>;
+  setUser: (updatedUser: UserFullData) => Promise<void>;
   removeUserPet: (petId: string) => Promise<void>;
   addUserFavoriteNotice: (note: Note) => Promise<void>;
   removeUserFavoriteNotice: (id: string) => Promise<void>;

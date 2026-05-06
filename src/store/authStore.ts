@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { api, clearAuthHeader, setAuthHeader } from '../lib/api';
 import type { AuthResponse, AuthState } from '../types/auth';
 import type { Note } from '../types/notices';
+import type { UserFullData } from '../types/user';
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
@@ -104,6 +105,10 @@ export const useAuthStore = create<AuthState>((set) => ({
       console.error('Update error:', error);
       throw error;
     }
+  },
+
+  setUser: async (updatedUser: UserFullData) => {
+    set({ user: updatedUser });
   },
 
   removeUserPet: async (petId: string) => {

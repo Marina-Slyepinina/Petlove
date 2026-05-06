@@ -12,15 +12,6 @@ interface FavoritesStore {
   removeFavorite: (id: string) => Promise<void>;
 }
 
-// interface PetInfo {
-//   name: string;
-//   title: string;
-//   imgURL: string;
-//   species: string;
-//   birthday: string;
-//   sex: string;
-// }
-
 export const useFavoritesStore = create<FavoritesStore>((set) => ({
   favoriteIds: [],
   isLoading: false,
@@ -61,11 +52,4 @@ export const useFavoritesStore = create<FavoritesStore>((set) => ({
       console.error(error);
     }
   },
-
-  // createPet: async (payload) => {
-  //   const res = await api.post('users/current/pets/add', {
-  //     params: payload,
-  //   });
-  //   return res.data;
-  // },
 }));
