@@ -1,0 +1,244 @@
+.stretchWidth {
+  width: stretch;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.radioLabel {
+  cursor: pointer;
+}
+
+.radioInput {
+  display: none;
+}
+
+.svgRadio {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  fill: none;
+}
+
+.female {
+  stroke: var(--color-female);
+  background-color: var(--color-female-10);
+}
+
+.male {
+  stroke: var(--color-male);
+  background-color: var(--color-male-10);
+}
+
+.multiple {
+  fill: var(--accent);
+  stroke: var(--accent);
+  background-color: var(--accent-lightest);
+}
+
+.female.active {
+  stroke: var(--white);
+  background-color: var(--color-female);
+}
+
+.male.active {
+  stroke: var(--white);
+  background-color: var(--color-male);
+}
+
+.multiple.active {
+  fill: var(--white);
+  stroke: var(--white);
+  background-color: var(--accent);
+}
+
+.avatarPreview {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.avatarImage,
+.avatarPlaceholder {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+}
+
+.avatarImage {
+  object-fit: cover;
+}
+
+.avatarPlaceholder {
+  padding: 17px;
+
+  fill: var(--accent);
+  background-color: var(--accent-lightest);
+}
+
+.inputGroupWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputGroupRow {
+  display: flex;
+  gap: 8px;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  border: 1px solid var(--border-dark);
+  border-radius: 30px;
+  padding: 10px;
+  width: 100%;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: var(--text-muted);
+}
+
+.uploadBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  min-width: 122px;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: var(--accent-lightest);
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+}
+
+.uploadSvg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--accent);
+}
+
+.uploadBaseInput {
+  display: none;
+}
+
+.btn {
+  border-radius: 30px;
+  padding: 12px 26px;
+  width: 100px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: end;
+
+  margin-top: 30px;
+}
+
+.backBtn {
+  background-color: var(--border-dark);
+}
+
+.submitBtn {
+  color: var(--white);
+  background-color: var(--accent);
+}
+
+.error {
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+.errorMessage {
+  color: var(--color-error);
+  font-size: 11px;
+
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+}
+
+@media screen and (min-width: 786px) {
+  .svgRadio {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 50%;
+  }
+
+  .avatarPreview {
+    margin-bottom: 12px;
+  }
+
+  .avatarImage,
+  .avatarPlaceholder {
+    width: 86px;
+    height: 86px;
+  }
+
+  .avatarPlaceholder {
+    padding: 21px;
+  }
+
+  .inputGroupWrapper {
+    gap: 18px;
+  }
+
+  .inputGroupRow {
+    gap: 10px;
+  }
+
+  .input {
+    padding: 16px;
+  }
+
+  .uploadBtn {
+    gap: 8px;
+    min-width: 146px;
+    padding: 16px;
+
+    font-size: 14px;
+    line-height: 1.29;
+  }
+
+  .uploadSvg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .btn {
+    padding: 14px 58px;
+    width: 170px;
+
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .actions {
+    margin-top: 40px;
+  }
+}
