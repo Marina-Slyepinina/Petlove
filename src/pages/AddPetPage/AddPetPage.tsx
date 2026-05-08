@@ -5,6 +5,7 @@ import tabl1x from "../../assets/img/add-pet/personal-tabl@1x.webp";
 import tabl2x from "../../assets/img/add-pet/personal-tabl@2x.webp";
 import desk1x from "../../assets/img/add-pet/personal-desc@1x.webp";
 import desk2x from "../../assets/img/add-pet/personal-desc@2x.webp";
+import { AddPetForm } from "../../components/AddPetForm/AddPetForm";
 
 const AddPetPage = () => {
     return (
@@ -19,6 +20,7 @@ const AddPetPage = () => {
                     <h1 className={css.title}>Add my pet /</h1>
                     <p className={css.subtitle}>Personal details</p>
                 </div>
+                <AddPetForm />
             </div>
         </div>
     )
