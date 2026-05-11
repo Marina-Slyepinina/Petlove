@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router";
 import clsx from "clsx";
 import type { Note } from "../../types/notices";
@@ -19,16 +19,11 @@ export const NoticesItem = ({ note, variant }: NoticesItemProps) => {
 
     const location = useLocation();
 
-    const fetchFavorites = useFavoritesStore(state => state.fetchFavorites);
     const addFavorite = useFavoritesStore(state => state.addFavorite);
     const removeFavorite = useFavoritesStore(state => state.removeFavorite);
     const favoriteIds = useFavoritesStore(state => state.favoriteIds);
-    const isFavorite = favoriteIds.find(item => item === note._id)
+    const isFavorite = favoriteIds.includes(note._id);
     const addViewed = useViewedStore(state => state.addViewed);
-
-    useEffect(() => {
-        fetchFavorites();
-    }, [fetchFavorites])
 
     const [isModalAttentionOpen, setIsModalAttentionOpen] = useState(false);
     const [isModalLearnMoreOpen, setIsModalLearnMoreOpen] = useState(false);

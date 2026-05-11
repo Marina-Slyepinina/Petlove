@@ -9,6 +9,7 @@ interface FavoritesStore {
 
   fetchFavorites: () => Promise<void>;
   addFavorite: (note: Note) => Promise<void>;
+  resetFavorites: () => void;
   removeFavorite: (id: string) => Promise<void>;
 }
 
@@ -29,6 +30,10 @@ export const useFavoritesStore = create<FavoritesStore>((set) => ({
     } finally {
       set({ isLoading: false });
     }
+  },
+
+  resetFavorites: () => {
+    set({ favoriteIds: [] });
   },
 
   addFavorite: async (note: Note) => {

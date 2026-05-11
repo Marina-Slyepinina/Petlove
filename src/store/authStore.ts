@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { api, clearAuthHeader, setAuthHeader } from '../lib/api';
+import { useFavoritesStore } from './favoritesStore';
 import type { AuthResponse, AuthState } from '../types/auth';
 import type { Note } from '../types/notices';
 import type { UserFullData } from '../types/user';
@@ -59,6 +60,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       token: null,
       isLoggedIn: false,
     });
+
+    useFavoritesStore.getState().resetFavorites();
   },
 
   refreshUser: async () => {

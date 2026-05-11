@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useNoticesStore } from "../../store/noticesStore";
+import { useFavoritesStore } from "../../store/favoritesStore";
+import { useAuthStore } from "../../store/authStore";
 import { Title } from "../../components/Title/Title";
 import { NoticesFilters } from "../../components/NoticesFilters/NoticesFilters";
 import { NoticesList } from "../../components/NoticesList/NoticesList";
@@ -10,15 +12,21 @@ const NoticesPage = () => {
 
   const fetchOptions = useNoticesStore(state => state.fetchOptions)
   const fetchNotices = useNoticesStore(state => state.fetchNotices)
+  const fetchFavorites = useFavoritesStore(state => state.fetchFavorites);
   const notices = useNoticesStore(state => state.notices)
   const totalPages = useNoticesStore(state => state.totalPages)
   const currentPage = useNoticesStore(state => state.filters.page)
   const setFilters = useNoticesStore(state => state.setFilters)
+  const isLoggedIn = useAuthStore(state => state.isLoggedIn)
 
   useEffect(() => {
     fetchOptions();
     fetchNotices();
-  }, [fetchNotices, fetchOptions])
+
+    if (isLoggedIn) {
+      fetchFavorites();
+    }
+  }, [fetchNotices, fetchOptions, fetchFavorites, isLoggedIn])
 
   const handlePageChange = (currentPage: number) => {
     setFilters({ page: currentPage })
