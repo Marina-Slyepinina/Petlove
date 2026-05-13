@@ -45,8 +45,7 @@ export const AddPetForm = () => {
     const onSubmit = async (data: AddPetFormValues) => {
         try {
             const res = await api.post('/users/current/pets/add', data);
-            setUser(res.data);
-            console.log(res.data);
+            setUser(res.data);;
 
             swal('Woohoo!', 'Your pet has been successfully added', 'success')
             navigate('/profile');

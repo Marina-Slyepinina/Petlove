@@ -15,7 +15,7 @@ function App() {
       try {
         await refreshUser();
       } catch {
-        console.log('User not authorized or token expired');
+        console.error('User not authorized or token expired');
       } finally {
         setIsAuthChecked(true);
       }
